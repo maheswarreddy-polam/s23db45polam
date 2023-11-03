@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+
+    - var results=[{Eagle_Name:"Apollo",Eagle_Age:22,Eagle_Color:"Brown"},{Eagle_Name:"Luna",Eagle_Age:20,Eagle_Color:"White"},{Eagle_Name:"Thunderbolt",Eagle_Age:25,Eagle_Color:"Black"}]
+  div(class="container-fluid")
+  div(class="row")
+   each s,index in results
+    div(class="col-sm-2" onclick=`buy(${index})`) #{s.Eagle_Name}, #{s.Eagle_Age}, #{s.Eagle_Color}
+    script.
+        function buy(a)
+        {
+            alert(`You purchased Item ${a+1}`)
+        }
