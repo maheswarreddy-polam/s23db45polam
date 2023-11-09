@@ -9,8 +9,8 @@ var usersRouter = require('./routes/users');
 var eagleRouter = require('./routes/eagle');
 var boardRouter = require('./routes/board');
 var chooseRouter = require('./routes/choose');
-var Costume = require("./models/costume");
-var resource = require("./routes/resource");
+var eagle = require("./models/eagle");
+var resourceRouter = require('./routes/resource');
 
 require('dotenv').config();
 const connectionString = process.env.MONGO_CON
@@ -34,7 +34,7 @@ app.use('/users', usersRouter);
 app.use('/eagle', eagleRouter);
 app.use('/board', boardRouter);
 app.use('/choose', chooseRouter);
-app.use('/resource', resource);
+app.use('/resource', resourceRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -63,25 +63,23 @@ console.log("Connection to DB succeeded")});
 //server start
 async function recreateDB(){
 // Delete everything
-await Costume.deleteMany().maxTimeMS(20000);
+await eagle.deleteMany().maxTimeMS(20000);
 
-let instance1 = new
-Costume({costume_type:"ghost", size:'large',cost:15.4});
+let instance1 = new eagle({NAME:"Eagle", AGE:'20',COLOR:"Blue"});
 instance1.save().then(doc=>{
 console.log("First object saved")}
 ).catch(err=>{
 console.error(err)
 });
 
-let instance2 = new Costume({costume_type:"ghost", size:'large',cost:15.4});
+let instance2 = new eagle({NAME:"Eagle1", AGE:'21',COLOR:"green"});
 instance2.save().then(doc=>{
 console.log("second object saved")}
 ).catch(err=>{
 console.error(err)
 });
 
-let instance3 = new
-Costume({costume_type:"ghost", size:'large',cost:15.4});
+let instance3 = new eagle({NAME:"Eagle2", AGE:'22',COLOR:"black"});
 instance3.save().then(doc=>{
 console.log("Third object saved")}
 ).catch(err=>{
