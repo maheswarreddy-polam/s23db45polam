@@ -3,8 +3,10 @@ extends layout
 block content
   h1= title
 
-    - var items=results
+  - var items = results
+
   div(class="container-fluid")
-  div(class="row")
-   each s in items
-    div(class="col-sm-2" ) #{s.NAME}, #{s.AGE}, #{s.COLOR}
+    div(class="row")
+      each s in items
+        div(class="col-sm-2")
+          p #{s.NAME}, #{s.AGE}, #{s.COLOR}

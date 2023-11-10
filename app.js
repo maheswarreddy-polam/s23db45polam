@@ -11,7 +11,6 @@ var boardRouter = require('./routes/board');
 var chooseRouter = require('./routes/choose');
 var eagle = require("./models/eagle");
 var resourceRouter = require('./routes/resource');
-
 require('dotenv').config();
 const connectionString = process.env.MONGO_CON
 var mongoose = require('mongoose')
