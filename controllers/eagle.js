@@ -30,10 +30,18 @@ exports.eagle_detail = async function(req, res)
 };
     
 
-// Handle eagle delete form on DELETE.
-exports.eagle_delete = function(req, res) {
-res.send('NOT IMPLEMENTED: eagle delete DELETE ' + req.params.id);
-};
+exports.eagle_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+    result = await eagle.findByIdAndDelete( req.params.id)
+    console.log("Removed " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": Error deleting ${err}}`);
+    }
+    };
+    
 // Handle eagle update form on PUT.
 exports.eagle_update_put = async function(req, res) 
 {
