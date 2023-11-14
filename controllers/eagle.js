@@ -107,6 +107,7 @@ exports.eagle_create_post = async function(req, res) {
     res.status(500);
     res.send(`{"error": ${err}}`);
     }
+    };
 
 
 
@@ -124,5 +125,5 @@ exports.eagle_view_one_Page = async function(req, res) {
     res.send(`{'error': '${err}'}`);
     }
     };
-    };
+
     
