@@ -88,14 +88,14 @@ exports.eagle_view_all_Page = async function(req, res) {
         };*/
 
 
-        // Handle Costume create on POST.
+        // Handle eagle create on POST.
 exports.eagle_create_post = async function(req, res) {
     console.log(req.body)
     let document = new eagle();
     // We are looking for a body, since POST does not have query parameters.
     // Even though bodies can be in many different formats, we will be picky
     // and require that it be a json object
-    // {"costume_type":"goat", "cost":12, "size":"large"}
+    // {"eagle_type":"goat", "cost":12, "size":"large"}
     document.NAME = req.body.NAME;
     document.AGE = req.body.AGE;
     document.COLOR = req.body.COLOR;
@@ -107,5 +107,22 @@ exports.eagle_create_post = async function(req, res) {
     res.status(500);
     res.send(`{"error": ${err}}`);
     }
+
+
+
+    //
+    // Handle a show one view with id specified by query
+exports.eagle_view_one_Page = async function(req, res) {
+    console.log("single view for id " + req.query.id)
+    try{
+    result = await eagle.findById( req.query.id)
+    res.render('eagledetail',
+    { title: 'eagle Detail', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
     };
     
