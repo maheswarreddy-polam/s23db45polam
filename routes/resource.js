@@ -21,6 +21,7 @@ router.get('/eagle', eagle_controller.eagle_list);
 //
 //
 //
-/* GET detail eagle page */
-router.get('/detail', eagle_controller.eagle_view_one_Page);
+// GET detail costume page
+router.get('/detail', eagle_controlers.eagle_view_one_Page);
+
 module.exports = router;

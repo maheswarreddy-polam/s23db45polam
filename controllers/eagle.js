@@ -113,17 +113,14 @@ exports.eagle_create_post = async function(req, res) {
 
     //
     // Handle a show one view with id specified by query
+// Handle a show one view with id specified by query
 exports.eagle_view_one_Page = async function(req, res) {
-    console.log("single view for id " + req.query.id)
-    try{
-    result = await eagle.findById( req.query.id)
-    res.render('eagledetail',
-    { title: 'eagle Detail', toShow: result });
+    console.log("single view for id " + req.query.id);
+    try {
+      const result = await eagle.findById(req.query.id);
+      res.render('eagledetail', { title: 'eagle Detail', toShow: result });
+    } catch (err) {
+      res.status(500).send(`{'error': '${err}'}`);
     }
-    catch(err){
-    res.status(500)
-    res.send(`{'error': '${err}'}`);
-    }
-    };
-
-    
+  };
+  
