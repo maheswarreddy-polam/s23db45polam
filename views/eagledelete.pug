@@ -1,0 +1,53 @@
+extends layout
+block content
+  h1= title
+
+  if (toShow == null)
+    h2 No instance to delete
+  else
+    - let eagleid = toShow._id
+    - let eagle_NAME = toShow.NAME
+    - let eagleAGE = toShow.AGE
+    - let eagleCOLOR = toShow.COLOR
+    - let actionid = "/resource/eagle/" + eagleid
+    script.
+      let actionid = "#{actionid}"
+    div
+      div.row
+        div(class='eagleAttr mr-3') eagleid is:
+          div #{eagleid}
+      div.row
+        div(class='eagleAttr mr-3') eagle_Name is:
+          div #{eagle_NAME}
+      div.row
+        div(class='eagleAttr mr-3') eagle_Age is:
+          div #{eagleAGE}
+      div.row
+        div(class='eagleAttr mr-3') eagle_Color:
+          div #{eagleCOLOR}
+
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+
+  script.
+    function cancel() {
+      // Go back to the home page for the eagle collection
+      window.location.href='/eagle'
+    }
+  script.
+    function deleteOnid() {
+      console.log("starting delete");
+      // delete first
+      fetch(actionid, {
+        method: 'DELETE'     // Don't need a body for the delete
+      }).then((resp) => {
+        return resp.json(); // or resp.text() or whatever the server sends
+      }).then((body) => {
+        alert("Delete succeeded");
+        window.location.href='/eagle';
+        // TODO handle body
+      }).catch((error) => {
+        // TODO handle error
+        alert("Delete failed " + error );
+      });
+    }
