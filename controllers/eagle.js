@@ -123,4 +123,52 @@ exports.eagle_view_one_Page = async function(req, res) {
       res.status(500).send(`{'error': '${err}'}`);
     }
   };
+
+
+
+
+  // Handle building the view for creating a eagle.
+// No body, no in path parameter, no query.
+// Does not need to be async
+exports.eagle_create_Page = function(req, res) {
+    console.log("create view")
+    try{
+    res.render('eaglecreate', { title: 'eagle Create'});
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
+
+    // Handle building the view for creating a eagle.
+// No body, no in path parameter, no query.
+// Does not need to be async
+exports.eagle_create_Page = function(req, res) {
+console.log("create view")
+try{
+res.render('eaglecreate', { title: 'eagle Create'});
+}
+catch(err){
+res.status(500)
+res.send(`{'error': '${err}'}`);
+}
+};
+
+
+// Handle building the view for updating a eagle.
+// query provides the id
+exports.eagle_update_Page = async function(req, res) {
+    console.log("update view for item "+req.query.id)
+    try{
+    let result = await eagle.findById(req.query.id)
+    res.render('eagleupdate', { title: 'eagle Update', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    }
+
+    
   

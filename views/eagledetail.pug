@@ -1,20 +1,26 @@
 extends layout
+
 block content
-h1= title
-- let eagleid = toShow._id
-- let eagle_name = toShow.NAME
-- let eagleage = toShow.AGE
-- let eaglecolor = toShow.COLOR
-div
-div.row
-div(class='eagleAttr mr-3') eagle ID is:
-div #{eagleid}
-div.row
-div(class='eagleAttr mr-3') eagle Type is:
-div #{eagle_name}
-div.row
-div(class='eagleAttr mr-3') eagle Size is:
-div #{eagleage}
-div.row
-div(class='eagleAttr mr-3') eagle Cost is:
-div #{eaglecolor}
+  h1= title
+
+  - let eagleid = toShow._id
+  - let eagle_NAME = toShow.NAME
+  - let eagleAGE = toShow.AGE
+  - let eagleCOLOR= toShow.COLOR
+
+  div
+    div.row
+      div(class='eagleAttr mr-4') eagle ID is:
+      div #{eagleid}
+
+    div.row
+      div(class='eagleAttr mr-4')  PassengerName is:
+      div #{eagle_NAME}
+
+    div.row
+      div(class='eagleAttr mr-4') TicketNumber is:
+      div #{eagleAGE}
+
+    div.row
+      div(class='eagleAttr mr-4') SeatNumber:
+      div #{eagleCOLOR}
