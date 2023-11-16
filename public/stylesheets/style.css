@@ -8,12 +8,23 @@ a {
 }
 
 .eagleAttr {
-  background-color: aquamarine;
+  background-color: lightskyblue;
   width: 120px;
   }
 
-
-
-  .eagleTAttr {
-    width: 120px;
+  .button3 {background-color: violet;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 12px;
+  color:black;
   }
+
+  .eagleAttr1 {
+    background-color: white;
+    width: 120px;
+    }
+    
+    .eagleAttr2 {
+      background-color: green;
+      width: 120px;
+      }
+
