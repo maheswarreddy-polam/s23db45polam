@@ -2,6 +2,9 @@ extends layout
 
 block content
   h1= title
+  if (toShow == null)
+   h2 No instance to update
+  else
   - let eagleid = toShow._id
   - let eagle_NAME = toShow.NAME
   - let eagleAGE = toShow.AGE
