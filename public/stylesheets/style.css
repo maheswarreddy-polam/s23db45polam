@@ -8,6 +8,11 @@ a {
 }
 
 .eagleAttr {
+  background-color: aquamarine;
+  width: 120px;
+  }
+
+.eagleAttr1 {
   background-color: lightskyblue;
   width: 120px;
   }
@@ -18,12 +23,12 @@ a {
   color:black;
   }
 
-  .eagleAttr1 {
+  .eagleAttr2 {
     background-color: white;
     width: 120px;
     }
     
-    .eagleAttr2 {
+    .eagleAttr3 {
       background-color: green;
       width: 120px;
       }
