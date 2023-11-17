@@ -10,12 +10,12 @@ block content
       each s in items
         div(class="col-sm-2")
           p #{s.NAME}, #{s.AGE}, #{s.COLOR}
-        - let destination = `/eagle/update?id=${s._id}` // Fix variable name and template string
+        - let destination = `/eagle/update?id=${s._id}`
           div(class="col-sm-2", onclick=`buy(${s})`) #{s.NAME}, #{s.AGE}, #{s.COLOR} // Fix variable name
           button.btn(class="btn-primary ml-1", onclick=`dispatch('${destination}')`) Update
   script.
     function buy(a) {
-      alert(`You purchased Item ${a.NAME}`); // Fix the alert message
+      alert(`You purchased Item ${a.NAME}`);
     }
     function dispatch(path) {
       window.location.href = path;
