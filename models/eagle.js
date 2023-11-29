@@ -8,6 +8,7 @@ const eagleSchema = mongoose.Schema({
     eagle_AGE: {
         type: Number,
         required: true
+        
     },
     eagle_COLOR: {
         type: String,
