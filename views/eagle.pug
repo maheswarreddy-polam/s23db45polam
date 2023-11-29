@@ -4,19 +4,18 @@ block content
   h1= title
 
   - var items = results
-
-  div(class="container-fluid mt-3")
-    div(class="row m-1")
+  a(class="btn btn-success" href="/eagle/create") Create
+  div(class="container-fluid")
+    div(class="row")
       each s in items
         div(class="col-sm-2")
           p #{s.NAME}, #{s.AGE}, #{s.COLOR}
         - let destination = `/eagle/update?id=${s._id}`
-        div(class="col-sm-2", onclick=`buy(${s})`)
-          | #{s.NAME}, #{s.AGE}, #{s.COLOR} // Fix variable name
-          button.btn(class="btn-dark", onclick=`dispatch('${destination}')`) Update 
-          button.btn(class="btn-danger", onclick=`dispatch('${destination}')`) Delete 
-          button.btn(class="btn-success", onclick=`dispatch('${destination}')`) Details
-          
+          div(class="col-sm-2", onclick=`buy(${s})`) #{s.NAME}, #{s.AGE}, #{s.COLOR} // Fix variable name
+          button.btn(class="btn-dark ml-1", onclick=`dispatch('${destination}')`) Update 
+          button.btn(class="btn-danger ml-1", onclick=`dispatch('${destination}')`) Delete
+          button.btn(class="btn-info ml-1", onclick=`dispatch('${destination}')`) Details
+         
   script.
     function buy(a) {
       alert(`You purchased Item ${a.NAME}`);
