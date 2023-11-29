@@ -1,9 +1,6 @@
 const { Double } = require("mongodb")
 const mongoose = require("mongoose")
 const eagleSchema = mongoose.Schema({
-    // eagle_NAME: String,
-    // eagle_AGE: Number,
-    // eagle_COLOR: String
     eagle_NAME: {
         type: String,
         required: true

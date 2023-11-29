@@ -13,7 +13,7 @@ const secured = (req, res, next) => {
     res.redirect("/login"); 
   } 
   
-/* GET costumes */
+/* GET eagles */
 router.get('/', eagle_controlers.eagle_view_all_Page );
 router.get('/eagle/:id', eagle_controlers.eagle_detail); 
 /* GET detail cars page */ 
@@ -22,6 +22,6 @@ router.get('/detail',secured, eagle_controlers.eagle_view_one_Page);
 router.get('/create',secured, eagle_controlers.eagle_create_Page);
 /* GET create update page */
 router.get('/update',secured, eagle_controlers.eagle_update_Page);
-/* GET delete costume page */
+/* GET delete eagle page */
 router.get('/delete',secured, eagle_controlers.eagle_delete_Page);
 module.exports = router;
