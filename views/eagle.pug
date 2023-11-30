@@ -11,10 +11,12 @@ block content
         div(class="col-sm-2")
           p #{s.NAME}, #{s.AGE}, #{s.COLOR}
         - let destination = `/eagle/update?id=${s._id}`
+        - let destination1 = `/eagle/delete?id=${s._id}`
+        - let destination2 = `/eagle/detail?id=${s._id}`
           div(class="col-sm-2", onclick=`buy(${s})`) #{s.NAME}, #{s.AGE}, #{s.COLOR} // Fix variable name
           button.btn(class="btn-dark ml-1", onclick=`dispatch('${destination}')`) Update 
-          button.btn(class="btn-danger ml-1", onclick=`dispatch('${destination}')`) Delete
-          button.btn(class="btn-info ml-1", onclick=`dispatch('${destination}')`) Details
+          button.btn(class="btn-danger ml-1", onclick=`dispatch('${destination1}')`) Delete
+          button.btn(class="btn-info ml-1", onclick=`dispatch('${destination2}')`) Details
          
   script.
     function buy(a) {
